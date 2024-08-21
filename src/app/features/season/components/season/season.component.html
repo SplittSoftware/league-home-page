@@ -1,0 +1,14 @@
+<nav>
+    <ng-container *ngFor="let seasonLink of allSeasons">
+        <span *ngIf="seasonLink.season == season?.season; else otherYear"><button mat-button
+                class="selected">{{seasonLink.year}}</button></span>
+        <ng-template #otherYear>
+            <span [routerLink]=" [seasonLink.link]"><button mat-raised-button>{{seasonLink.year}}</button></span>
+        </ng-template>
+    </ng-container>
+</nav>
+<h1>Season {{season?.season}}: {{season?.year}}</h1>
+<app-trophy-case *ngIf="firstTrophy && secondTrophy && thirdTrophy" [first]="firstTrophy" [second]="secondTrophy"
+    [third]="thirdTrophy"></app-trophy-case>
+<app-table *ngIf="tableData.length > 0" [tableColumns]="tableColumns" [tableData]="tableData">
+</app-table>

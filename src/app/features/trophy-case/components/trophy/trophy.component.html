@@ -1,0 +1,5 @@
+<div class="trophy">
+    <img [src]="trophy?.image" alt="trophy-image" [class]="[trophy?.type]">
+    <p class="winner">{{trophy?.manager?.name | titlecase}}</p>
+    <p class="record">{{trophy?.manager?.wins}}-{{trophy?.manager?.losses}}</p>
+</div>

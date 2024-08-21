@@ -1,0 +1,20 @@
+<main class="main">
+  <div class="content">
+    <nav>
+      <span routerLink=""><button mat-button>Home</button></span>
+      <span><button mat-button [matMenuTriggerFor]="managers">Managers</button></span>
+      <span><button mat-button [matMenuTriggerFor]="seasons">Seasons</button></span>
+      <mat-menu #managers="matMenu">
+        <ng-container *ngFor="let manager of managerData">
+          <span [routerLink]="[manager.link]"><button mat-menu-item>{{manager.name | titlecase}}</button></span>
+        </ng-container>
+      </mat-menu>
+      <mat-menu #seasons="matMenu">
+        <ng-container *ngFor="let season of seasonData">
+          <span [routerLink]="[season.link]"><button mat-menu-item>{{season.year}}</button></span>
+        </ng-container>
+      </mat-menu>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</main>

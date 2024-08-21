@@ -1,0 +1,55 @@
+<nav>
+    <ng-container *ngFor="let managerLink of allManagers">
+        <span *ngIf="managerLink.name == manager?.name; else otherManager">
+            <button mat-button class="selected">{{managerLink.name | titlecase}}</button>
+        </span>
+        <ng-template #otherManager>
+            <span [routerLink]=" [managerLink.link]">
+                <button mat-raised-button>{{managerLink.name | titlecase}}</button>
+            </span>
+        </ng-template>
+    </ng-container>
+</nav>
+<h1>{{manager?.name | titlecase}}</h1>
+<div>
+    <table mat-table class="mat-elevation-z2 centered">
+        <tr mat-row>
+            <td class="key">Overall Record</td>
+            <td>{{manager?.wins}}-{{manager?.losses}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Total Points For</td>
+            <td>{{manager?.totalPointsFor}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Total Points Against</td>
+            <td>{{manager?.totalPointsAgainst}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Average Points</td>
+            <td>{{manager?.averagePointsFor}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Average Place</td>
+            <td>{{manager?.averagePlace}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Firsts 🥇</td>
+            <td>{{manager?.firsts}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Seconds 🥈</td>
+            <td>{{manager?.seconds}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Thirds 🥉</td>
+            <td>{{manager?.thirds}}</td>
+        </tr>
+        <tr mat-row>
+            <td class="key">Cheds 🚽</td>
+            <td>{{manager?.cheds}}</td>
+        </tr>
+    </table>
+</div>
+<app-table *ngIf="tableData.length > 0" [tableColumns]="tableColumns" [tableData]="tableData">
+</app-table>
