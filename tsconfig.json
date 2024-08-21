@@ -15,7 +15,6 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
@@ -23,6 +22,9 @@
     "lib": [
       "ES2022",
       "dom"
+    ],
+    "types": [
+      "@cloudflare/workers-types/2023-07-01"
     ]
   },
   "angularCompilerOptions": {

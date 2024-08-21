@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
   "newProjectRoot": "projects",
   "projects": {
-    "ffl-home-page": {
+    "league-home-page": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ffl-home-page",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -29,7 +32,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/_routes.json"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -71,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ffl-home-page:build:production"
+              "buildTarget": "league-home-page:build:production"
             },
             "development": {
-              "buildTarget": "ffl-home-page:build:development"
+              "buildTarget": "league-home-page:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +102,7 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
