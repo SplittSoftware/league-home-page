@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seasonService.getSeasons().subscribe((seasons) => {
-      let lastSeason = seasons.find((season) => season.season == 12)
+      let lastSeasonNumber = Math.max(...seasons.map(season => season.season))
+      let lastSeason = seasons.find((season) => season.season == lastSeasonNumber)
       this.firstTrophy = {
         type: 'first',
         manager: lastSeason?.records.find((record) => record.place == 1)
