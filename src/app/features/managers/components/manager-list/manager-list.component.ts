@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-manager-list',
   standalone: true,
-  imports: [ManagerComponent, TableComponent, MatTableModule, RouterLink, CommonModule],
+  imports: [TableComponent, MatTableModule, CommonModule],
   templateUrl: './manager-list.component.html',
   styleUrl: './manager-list.component.scss'
 })

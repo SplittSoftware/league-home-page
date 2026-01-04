@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
     this.seasonService.getSeasons().subscribe((seasons) => {
       seasons.forEach((season) => season.link = `/season/${season.season}`);
-      this.seasonData = seasons.sort((a, b) => a.season - b.season);
+      this.seasonData = seasons.sort((a, b) => b.season - a.season);
     });
   }
 
