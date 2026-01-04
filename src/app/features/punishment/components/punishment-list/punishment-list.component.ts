@@ -20,9 +20,9 @@ export class PunishmentListComponent implements OnInit {
   tableColumns: Array<Column> = [
     { columnDef: 'name', header: 'Name', cell: (punishment: Record<string, any>) => `${punishment['name']}` },
     { columnDef: 'waffles', header: 'Waffles', cell: (punishment: Record<string, any>) => `${punishment['waffleString']}` },
-    { columnDef: 'hours', header: 'Hours', cell: (punishment: Record<string, any>) => `${punishment['punishmentResult']['hours']}` },
-    { columnDef: 'year', header: 'Year', cell: (punishment: Record<string, any>) => `${punishment['year']}` },
-    { columnDef: 'season', header: 'Season', cell: (punishment: Record<string, any>) => `${punishment['season']}` },
+    { columnDef: 'hours', header: 'Hours', cell: (punishment: Record<number, any>) => `${punishment['punishmentResult']['hours']}` },
+    { columnDef: 'year', header: 'Year', cell: (punishment: Record<string, any>) => `${punishment['year']}`, isSortable: true },
+    { columnDef: 'season', header: 'Season', cell: (punishment: Record<string, any>) => `${punishment['season']}`, isSortable: true },
   ];
 
   tableData: Array<Punishment> = [];
